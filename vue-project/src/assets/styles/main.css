@@ -1,0 +1,42 @@
+:root {
+  --color-primary: #42b883;
+  --color-primary-dark: #369e6f;
+  --color-text: #2c3e50;
+  --color-border: #e0e0e0;
+  --radius: 0.5rem;
+  --gap: 1rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  background: #f7f7f7;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
