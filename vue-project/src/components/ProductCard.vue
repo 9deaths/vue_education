@@ -14,9 +14,15 @@ const quantity = computed(() => getQuantity(props.product.id))
     <img class="card__image" :src="product.image" :alt="product.title" />
     <div class="card__body">
       <h3 class="card__title">{{ product.title }}</h3>
+      <p class="card__meta">{{ product.brand }} · {{ product.category }}</p>
       <p class="card__price">{{ product.price }} ₽</p>
+      <p class="card__rating">★ {{ product.rating }}</p>
 
-      <div v-if="quantity === 0" class="card__actions">
+      <div v-if="!product.inStock" class="card__out">
+        Нет в наличии
+      </div>
+
+      <div v-else-if="quantity === 0" class="card__actions">
         <button class="card__button" @click="increment(product)">Купить</button>
       </div>
 
@@ -28,3 +34,5 @@ const quantity = computed(() => getQuantity(props.product.id))
     </div>
   </div>
 </template>
+
+<style scoped src="../assets/styles/card.css"></style>

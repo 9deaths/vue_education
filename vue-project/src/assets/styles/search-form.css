@@ -1,0 +1,22 @@
+.search {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.search__label {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.search__input {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  outline: none;
+}
+
+.search__input:focus {
+  border-color: var(--color-primary);
+}

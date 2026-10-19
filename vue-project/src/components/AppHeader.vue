@@ -14,3 +14,5 @@ import { count, total } from '../composables/useCart'
     </div>
   </header>
 </template>
+
+<style scoped src="../assets/styles/header.css"></style>
