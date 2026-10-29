@@ -4,9 +4,10 @@ import ProductCard from '../components/ProductCard.vue'
 import SearchForm from '../components/SearchForm.vue'
 import FilterPanel from '../components/FilterPanel.vue'
 import { createFilters } from '../composables/useFilters'
+import type { CatalogProduct } from '../types/product'
 
 /** Массив товаров. */
-const products = ref<any[]>([])
+const products = ref<CatalogProduct[]>([])
 
 /** Флаг загрузки товаров. */
 const loading = ref(true)
@@ -32,8 +33,8 @@ fetch('/products.json')
   .then((data) => {
     products.value = data
   })
-  .catch((e: any) => {
-    error.value = e.message
+  .catch((e: unknown) => {
+    error.value = e instanceof Error ? e.message : String(e)
   })
   .finally(() => {
     loading.value = false
@@ -90,4 +91,4 @@ const filteredProducts = computed(() => {
   </main>
 </template>
 
-<style scoped src="../assets/styles/home.css"></style>
+<style scoped src="./HomePage.css"></style>

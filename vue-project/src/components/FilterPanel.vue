@@ -72,4 +72,4 @@ function reset() {
   </div>
 </template>
 
-<style scoped src="../assets/styles/filters.css"></style>
+<style scoped src="./FilterPanel.css"></style>

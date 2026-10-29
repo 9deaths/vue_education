@@ -15,4 +15,4 @@ const search = defineModel<string>('search', { default: '' })
   </div>
 </template>
 
-<style scoped src="../assets/styles/search-form.css"></style>
+<style scoped src="./SearchForm.css"></style>
