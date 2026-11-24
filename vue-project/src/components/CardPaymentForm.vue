@@ -6,7 +6,7 @@ import { formatCardNumber, isValidCardNumber, isValidExpiry } from '../utils/luh
 /** Событие успешной оплаты. */
 const emit = defineEmits<{ paid: [] }>()
 
-const store = useCartStore()
+const cartStore = useCartStore()
 
 /** Ссылки на поля для управления фокусом. */
 const numberEl = useTemplateRef<HTMLInputElement>('numberEl')
@@ -187,7 +187,7 @@ function submit() {
     </label>
 
     <button class="card-form__submit" type="submit">
-      Оплатить {{ store.total }} ₽
+      Оплатить {{ cartStore.total }} ₽
     </button>
   </form>
 </template>
