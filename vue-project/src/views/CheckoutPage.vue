@@ -6,22 +6,22 @@ import { useCartStore } from '../stores/cart'
 import { PaymentMethod } from '../types/payment'
 
 const router = useRouter()
-const store = useCartStore()
+const cartStore = useCartStore()
 
 /** Активный способ оплаты. */
 const method = ref<PaymentMethod>(PaymentMethod.Card)
 
 /** Возвращает в корзину и оплаты. */
 onMounted(() => {
-  if (store.isEmpty) {
-    router.replace('/cart')
+  if (cartStore.isEmpty) {
+    router.replace({ name: 'cart' })
   }
 })
 
 /** Отмечает оплату и переходит на страницу успеха. */
 function goToSuccess() {
-  store.markPaid()
-  router.push('/success')
+  cartStore.markPaid()
+  router.push({ name: 'success' })
 }
 </script>
 

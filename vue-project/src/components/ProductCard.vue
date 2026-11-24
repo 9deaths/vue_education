@@ -6,10 +6,10 @@ import type { CatalogProduct } from '../types/product'
 /** Параметры компонента товара. */
 const props = defineProps<{ product: CatalogProduct }>()
 
-const store = useCartStore()
+const cartStore = useCartStore()
 
 /** Количество конкретного товара в корзине на данный момент. */
-const quantity = computed(() => store.getQuantity(props.product))
+const quantity = computed(() => cartStore.getQuantity(props.product))
 </script>
 
 <template>
@@ -24,13 +24,13 @@ const quantity = computed(() => store.getQuantity(props.product))
       <div v-if="!product.inStock" class="card__out">Нет в наличии</div>
 
       <div v-else-if="quantity === 0" class="card__actions">
-        <button class="card__button" @click="store.increment(product)">Купить</button>
+        <button class="card__button" @click="cartStore.increment(product)">Купить</button>
       </div>
 
       <div v-else class="card__counter">
-        <button class="card__counter-btn" @click="store.decrement(product)">−</button>
+        <button class="card__counter-btn" @click="cartStore.decrement(product)">−</button>
         <span class="card__counter-value">{{ quantity }}</span>
-        <button class="card__counter-btn" @click="store.increment(product)">+</button>
+        <button class="card__counter-btn" @click="cartStore.increment(product)">+</button>
       </div>
     </div>
   </div>
